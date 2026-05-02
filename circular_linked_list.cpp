@@ -68,7 +68,40 @@ public:
         tail = newNode;   
     }
     void delete_at_head(){
-        
+        if(head==NULL){ // no nodes
+            cout << "List is empty!\n";
+            return;
+        }
+        if(head==tail){ // only one node
+            delete head;
+            head = tail = NULL;
+            return;
+        }
+        Node* temp = head;
+        head = head->next;
+        tail->next = head;
+        temp->next = NULL;
+        delete temp;
+    }
+    void delete_at_tail(){
+        if(head==NULL){
+            cout << "List is empty!\n";
+            return;
+        }
+        if(head==tail){
+            delete head;
+            head = tail = NULL;
+            return;
+        }
+        // first we find out the second last node!
+        Node* temp = head;
+        while(temp->next!=tail){//temp is now 2nd last node
+            temp = temp->next;
+        }
+        temp->next = head;
+        tail->next = NULL;
+        delete tail;
+        tail = temp;
     }
 };
 
@@ -80,6 +113,8 @@ int main(){
     cll.insert_at_head(3);
     cll.insert_at_tail(4);
     cll.insert_at_tail(5);
+    // cll.delete_at_head();
+    cll.delete_at_tail();
     cll.printLL();
     return 0;
 }
