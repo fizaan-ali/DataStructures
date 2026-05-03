@@ -113,6 +113,14 @@ public:
         }
         return index;
     }
+    ~Linked_List(){ // destructor for deleting every node in our linked list from heap memory
+        Node* temp;
+        while(head!=NULL){
+            temp = head;
+            head = head->next;
+            delete temp;
+        }
+    }
 };
 
 int main(){
