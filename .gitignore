@@ -1,2 +1,9 @@
 *.exe
+*.o
+*.out
+*.obj
+temp*
+*.swp
 .vscode/
+.DS_Store
+node_modules/
