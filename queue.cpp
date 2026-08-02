@@ -15,6 +15,7 @@ public:
     void enqueue(int val){
         if(rear == n - 1){
             cout << "Queue Overflow" << endl;
+            return;
         }
         rear++;
         arr[rear] = val;
@@ -25,6 +26,7 @@ public:
     int dequeue(){
         if(front==-1 || front>rear){
             cout << "There is nothing to see in queue." << endl;
+            return;
         }
         int temp = arr[front];
         front++;
